@@ -1,0 +1,46 @@
+name: 'Create Release Staging Environment'
+description: 'Create Release Staging Environments with Github Actions'
+inputs:
+  app_id:
+    description: 'Release App ID'
+    required: true
+  branch:
+    description: 'Git branch name'
+    required: true   
+  services:
+    description: 'Object in the form of {service_name: image_name}'
+    required: true
+  commit_short:
+    description: 'Shortened version of a commit sha, usually seven characters'
+    required: false
+  commit_long:
+    description: 'Full commit sha'
+    required: false 
+  committer:
+    description: 'Email of the person who created the commit'
+    required: false 
+  commit_message:
+    description: 'Message used for the commit'
+    required: false
+  commit_date:
+    description: 'Time the commit happened at in the form  "YYYY-MM-DD HH:MM:SS -0700". "-0700" is used as an example time zone offset.'
+    required: false
+  logs:
+    description: 'Array of objects in the form of {level: "info" || "error", message: "message"}'
+    required: false                           
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.app_id }}
+    - ${{ inputs.branch }}
+    - ${{ inputs.services }}
+    - ${{ inputs.commit_short }}
+    - ${{ inputs.commit_long }}
+    - ${{ inputs.committer }}
+    - ${{ inputs.commit_message }}
+    - ${{ inputs.commit_date }}
+    - ${{ inputs.logs }}
