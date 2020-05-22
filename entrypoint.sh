@@ -24,5 +24,5 @@ curl -H "X-Account-ID: $RELEASE_ACCOUNT_ID" \
      --silent \
      --show-error \
      --fail \
-     -d generate_post_data() \
+     -d "$(generate_post_data)" \
      -X POST https://e9451f76.ngrok.io/api/environments
