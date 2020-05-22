@@ -17,4 +17,10 @@ echo "======================================="
 
 set -e
 
-sh -c "curl --silent --show-error --fail -H 'X-Account-ID: $RELEASE_ACCOUNT_ID' -H 'X-Account-Token: $RELEASE_ACCOUNT_AUTHENTICATION_TOKEN' -X POST https://e9451f76.ngrok.io/api/environments"
+curl -H "X-Account-ID: $RELEASE_ACCOUNT_ID" \
+     -H "X-Account-Token: $RELEASE_ACCOUNT_AUTHENTICATION_TOKEN" \
+     --silent \
+     --show-error \
+     --fail \
+     -d "{'app_id':$1, 'branch':$2, 'services': $3, 'commit_short': $4, 'commit_long': $5, 'commiter': $6, 'commit_message': $7, 'commit_date': $8, 'logs': $9" \
+     -X POST https://e9451f76.ngrok.io/api/environments
