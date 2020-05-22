@@ -3,6 +3,7 @@
 Add creating a Release Staging Environment to your existing Github Actions pipelines. By passing in the app you want to create the environment for and the Docker images to to use, you have full control over what is created. Additionally by adding a branch, you're able to continually update the same environment as you push code changes.
 
 [Create A Staging Environment Documentation](https://docs.releaseapp.io/api-documentation/release-api/create-a-staging-environment)
+
 [Release API Authentication Documentation](https://app.gitbook.com/@releaseapp-release/s/release/api-documentation/release-api/authentication)
 
 
@@ -33,13 +34,5 @@ body:
 
 ## Example Usage
 ```
-on: push
-jobs:
-  curl:
-    runs-on: ubuntu-latest
-    steps:
-    - name: curl
-      uses: wei/curl@master
-      with:
-        args: https://httpbin.org/get
+
 ```
