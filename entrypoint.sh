@@ -17,4 +17,4 @@ echo "======================================="
 
 set -e
 
-#sh -c "curl --silent --show-error --fail -X POST https://releaseapp.io/api/environments $*"
+sh -c "curl --silent --show-error --fail -H 'X-Account-ID: $RELEASE_ACCOUNT_ID' -H 'X-Account-Token: $RELEASE_ACCOUNT_AUTHENTICATION_TOKEN' -X POST https://e9451f76.ngrok.io/api/environments"
