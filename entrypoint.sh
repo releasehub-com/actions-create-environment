@@ -10,11 +10,6 @@ echo "Arg 7 commit_message: $7"
 echo "Arg 8 commit_date: $8"
 echo "Arg 9 logs: $9"
 
-echo "======================================="
-echo "List All Environment Variables:"
-printenv
-echo "======================================="
-
 set -e
 
 curl -H "X-Account-ID: $RELEASE_ACCOUNT_ID" \
